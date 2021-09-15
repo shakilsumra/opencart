@@ -1,7 +1,5 @@
 == Installation ==
-
 = Using The opencart admin Dashboard =
-
 1. Navigate to the 'Add New' in the ( Extensions >> Installer)
 2.Upload the zip file that will be given to you here
 3. Click (Extensions >> Modifications) Then you clear and refresh the modifications
