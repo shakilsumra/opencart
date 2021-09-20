@@ -1,0 +1,58 @@
+
+<div class="buttons">
+  <div class="pull-right">
+   <button type="submit" class="btn btn-primary" id="octifi" onclick="octifi.open(octifi.checkout)">
+                  Buy Now with OctiFi
+</button>
+  </div>
+</div>
+ <script type="text/javascript">
+ $(document).ready(function () {
+ var _octifi_config = {
+            modal: false,
+            public_api_key: '{{ public_api_key }}',
+            merchant_logo: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Logo_Lazada.png",
+            redirect_confirmation_url_action: "GET",
+            redirect_callbacks: {
+                onSuccess: "{{ callbackurl }}",
+                onFail: "{{ callbackurl }}",
+            }
+  };
+      
+ octifi.initialize(_octifi_config);
+octifi.checkout = {
+        checkout: {
+          merchant: {
+            name: "{{ store_name }}"
+          },
+          bill: {
+            display_name: "{{ display_name }}",
+            tax_amount: 0,
+            total_amount: {{ totals }},
+            currency: "SGD", 
+            merchant_order_id: "{{ order_id }}", 
+          },
+          customer: {
+            phone_number: "+65{{ telephone }}", 
+            email: "{{ email }}"
+          },
+           details: {
+            shipping: {
+              name: {
+                first: "{{ shiping_fristname }}",
+                last: "{{ shiping_lastname }}"
+              },
+              billing: {
+                name: { 
+                  first: "{{ bill_fristname }}",
+                  last: "{{ bill_lastname }}"
+                },
+              }
+            }
+        }
+        }
+}  
+});        
+
+
+ </script>
